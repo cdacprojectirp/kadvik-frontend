@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
+import { AccountService } from '../services/account.service';
 
 
 @Component({
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   public message = ""
 
   //injecting auth service
-  constructor(private _authService: AuthService) { }
+  constructor(private _accountService: AccountService) { }
 
   ngOnInit() {
   }
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   //login function
   public login() {
     this.message = ""; //just for testing
-    this._authService.authenticate(this.email, this.password).
+    this._accountService.authenticate(this.email, this.password).
       subscribe(data => { //subscribing to observable
          //if invalid details
         if (data === null) {
