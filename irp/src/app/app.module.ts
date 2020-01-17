@@ -7,11 +7,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
+import { LogoutComponent } from './account/logout/logout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents
+    routingComponents,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
