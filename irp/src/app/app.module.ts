@@ -20,7 +20,7 @@ import { LogoutComponent } from './account/logout/logout.component';
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

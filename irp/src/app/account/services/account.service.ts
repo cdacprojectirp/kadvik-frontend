@@ -9,6 +9,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AccountService {
+  readonly rootUrl = "http://localhost:8080/api/"
+
   constructor(private http: HttpClient) { }
 
   public authenticate(email, password): Observable<Student> {
@@ -16,7 +18,7 @@ export class AccountService {
       "email": email,
       "password": password
     }
-    return this.http.post<Student>("http://localhost:8080/api/student/authenticate", body).pipe(
+    return this.http.post<Student>(this.rootUrl+"student/authenticate", body).pipe(
       map(
         userData => {
           sessionStorage.setItem('prn', userData.prn);
@@ -37,7 +39,7 @@ export class AccountService {
   }
 
   public register(student: Student) {
-    return this.http.post<Student>("http://localhost:8080/api/student/register", student);
+    return this.http.post<Student>(this.rootUrl+"/student/register", student);
   }
 
 }

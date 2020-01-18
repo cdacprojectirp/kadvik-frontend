@@ -3,16 +3,20 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './account/login/login.component';
 import { RegisterComponent } from './account/register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AuthGaurdService } from './auth-guard.service';
+import { AuthGuardService } from './auth-guard.service';
 import { LogoutComponent } from './account/logout/logout.component';
+import { QuizComponent } from './exam/quiz/quiz.component';
+import { ResultComponent } from './exam/result/result.component';
 
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'logout', component: LogoutComponent, canActivate:[AuthGaurdService]},
-  { path: 'dashboard', component: DashboardComponent, canActivate:[AuthGaurdService]}
+  { path: 'logout', component: LogoutComponent, canActivate: [AuthGuardService] },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService] },
+  { path: 'quiz', component: QuizComponent },
+  { path: 'result', component: ResultComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' } //for default path
 ];
 
 @NgModule({
@@ -21,8 +25,10 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 export const routingComponents = [
-  LoginComponent, 
-  RegisterComponent, 
+  LoginComponent,
+  RegisterComponent,
   DashboardComponent,
-  LogoutComponent
+  LogoutComponent,
+  QuizComponent,
+  ResultComponent
 ]
