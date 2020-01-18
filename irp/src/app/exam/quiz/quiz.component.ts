@@ -12,7 +12,7 @@ export class QuizComponent implements OnInit {
   constructor(private router: Router, private quizService: QuizService ) { }
 
   ngOnInit() {
-    if
+    
   }
 
 }
