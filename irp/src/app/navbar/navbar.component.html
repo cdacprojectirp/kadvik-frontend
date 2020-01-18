@@ -1,0 +1,28 @@
+<nav class="navbar mb-3 navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand ml-4 h1" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" (click)="toggleNav = !toggleNav">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" [ngClass]="{ show: toggleNav }">
+    <ul class="navbar-nav ml-auto">
+
+      <!-- when user is logged out -->
+      <li class="nav-item mx-4">
+        <a *ngIf="!isLoggedIn" class="nav-link" [routerLink]='["/login"]'>Login</a>
+      </li>
+      <li class="nav-item ml-4" style="margin-right: 80px;">
+        <a *ngIf="!isLoggedIn" class="nav-link" [routerLink]='["/register"]'>Register</a>
+      </li>
+
+      <!-- when user is logged in -->
+      <li class="nav-item mx-4">
+        <a *ngIf="isLoggedIn" class="nav-link">Hello, User</a>
+      </li>
+      <li class="nav-item ml-4" style="margin-right: 80px;">
+        <a *ngIf="isLoggedIn" class="nav-link" [routerLink]='["/logout"]'>Logout</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>

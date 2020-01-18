@@ -30,7 +30,6 @@ export class AccountService {
 
   public isUserLoggedIn() {
     var user = sessionStorage.getItem('prn')
-    console.log(!(user === null))
     return !(user === null)
   }
 
