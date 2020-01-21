@@ -13,15 +13,15 @@ export class AccountService {
 
   constructor(private http: HttpClient) { }
 
-  public authenticate(email, password): Observable<Student> {
+  public authenticate(email, password): Observable<any> {
     var body = {
       "email": email,
       "password": password
     }
-    return this.http.post<Student>(this.rootUrl+"student/authenticate", body).pipe(
+    return this.http.post<any>(this.rootUrl+"student/authenticate", body).pipe(
       map(
         userData => {
-          sessionStorage.setItem('prn', userData.prn);
+          sessionStorage.setItem('prn', userData);
           return userData;
         }
       )

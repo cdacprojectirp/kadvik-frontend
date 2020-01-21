@@ -14,8 +14,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'logout', component: LogoutComponent, canActivate: [AuthGuardService] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService] },
-  { path: 'quiz', component: QuizComponent },
-  { path: 'result', component: ResultComponent },
+  { path: 'quiz', component: QuizComponent, canActivate:[AuthGuardService] },
+  { path: 'result', component: ResultComponent, canActivate:[AuthGuardService]},
   { path: '', redirectTo: '/login', pathMatch: 'full' } //for default path
 ];
 
