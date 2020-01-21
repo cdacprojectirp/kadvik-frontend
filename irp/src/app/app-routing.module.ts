@@ -7,6 +7,7 @@ import { AuthGuardService } from './auth-guard.service';
 import { LogoutComponent } from './account/logout/logout.component';
 import { QuizComponent } from './exam/quiz/quiz.component';
 import { ResultComponent } from './exam/result/result.component';
+import { ListComponent } from './account/list/list.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService] },
   { path: 'quiz', component: QuizComponent },
   { path: 'result', component: ResultComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' } //for default path
+  { path: 'list', component: ListComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },//for default path
 ];
 
 @NgModule({
@@ -30,5 +32,6 @@ export const routingComponents = [
   DashboardComponent,
   LogoutComponent,
   QuizComponent,
-  ResultComponent
+  ResultComponent,
+  ListComponent
 ]

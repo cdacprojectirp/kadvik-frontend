@@ -9,13 +9,15 @@ import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
 import { LogoutComponent } from './account/logout/logout.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ListComponent } from './account/list/list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
     LogoutComponent,
-    NavbarComponent
+    NavbarComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
