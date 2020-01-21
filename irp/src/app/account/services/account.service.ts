@@ -21,10 +21,7 @@ export class AccountService {
     return this.http.post<any>(this.rootUrl+"student/authenticate", body).pipe(
       map(
         userData => {
-<<<<<<< HEAD
-=======
           
->>>>>>> 75616f29efc28cac5384fd4fff27b08490f784db
           sessionStorage.setItem('prn', userData);
           return userData;
         }

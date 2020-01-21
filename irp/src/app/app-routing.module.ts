@@ -15,16 +15,10 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'logout', component: LogoutComponent, canActivate: [AuthGuardService] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService] },
-<<<<<<< HEAD
-  { path: 'quiz', component: QuizComponent, canActivate:[AuthGuardService] },
-  { path: 'result', component: ResultComponent, canActivate:[AuthGuardService]},
-  { path: '', redirectTo: '/login', pathMatch: 'full' } //for default path
-=======
   { path: 'quiz', component: QuizComponent },
   { path: 'result', component: ResultComponent },
   { path: 'list', component: ListComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },//for default path
->>>>>>> 75616f29efc28cac5384fd4fff27b08490f784db
 ];
 
 @NgModule({
