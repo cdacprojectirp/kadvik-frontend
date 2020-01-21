@@ -9,6 +9,9 @@ import { QuizService } from '../examService/quiz.service';
 })
 export class QuizComponent implements OnInit {
 
+  colour = 'brown lighten-1';
+  activate: number;
+
   constructor(private router: Router, private quizService: QuizService) { }
 
   ngOnInit() {
@@ -43,14 +46,35 @@ export class QuizComponent implements OnInit {
   }
 
   answer(qId, choice) {
+    console.log(this.quizService.qstProgress);
     this.quizService.questions[this.quizService.qstProgress].answer = choice;
     localStorage.setItem('questions', JSON.stringify(this.quizService.questions));
-    this.quizService.qstProgress++;
+    this.next(this.quizService.qstProgress);
     localStorage.setItem('qstProgress', this.quizService.qstProgress.toString());
-    if (this.quizService.qstProgress == 10) {
-      clearInterval(this.quizService.timer);
-      this.router.navigate(['/result'])
-    }
+
   }
 
+  previous(qProgress) {
+
+    if (this.quizService.qstProgress == 0)
+      this.quizService.qstProgress = 9;
+    else
+      this.quizService.qstProgress--;
+    this.activate = this.quizService.questions[this.quizService.qstProgress].answer;
+  }
+
+  next(qProgress) {
+    if (this.quizService.qstProgress == 9)
+      this.quizService.qstProgress = 0;
+    else
+      this.quizService.qstProgress++;
+    this.activate = this.quizService.questions[this.quizService.qstProgress].answer;
+  }
+
+  onSubmit(qProgress) {
+    this.quizService.qstProgress = 10;
+    localStorage.setItem('qstProgress', this.quizService.qstProgress.toString());
+    clearInterval(this.quizService.timer);
+    this.router.navigate(['/result']);
+  }
 }
