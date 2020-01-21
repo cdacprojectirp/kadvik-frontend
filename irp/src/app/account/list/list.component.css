@@ -1,0 +1,19 @@
+#time{
+    background-color:#81d4fa;
+ 
+}
+
+#day{
+    background-color:#536976;
+    color:white;
+}
+#free{
+    background-color:#b3e5fc;
+    text-align: center;
+    /* column-span: all; */
+}
+
+#time1{
+    background-color:#b3e5fc;
+ 
+}
