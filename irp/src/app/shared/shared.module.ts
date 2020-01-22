@@ -6,7 +6,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MatDividerModule, MatIconModule, MatButtonModule, MatMenuModule, MatListModule,MatToolbarModule} from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule} from '@angular/flex-layout';
-import { ListComponent } from '../account/list/list.component';
+
 
 
 @NgModule({

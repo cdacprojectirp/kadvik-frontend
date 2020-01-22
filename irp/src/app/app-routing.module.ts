@@ -52,7 +52,7 @@ export const routingComponents = [
   LogoutComponent,
   QuizComponent,
   ResultComponent,
-  TimetableComponent
+  TimetableComponent,
   FeedbackComponent,
   FeedbackListComponent,
 

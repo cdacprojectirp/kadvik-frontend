@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { TimeTable } from 'src/app/account/models/TimeTable';
+
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { TimeTable } from '../models/TimeTable';
 
 @Injectable({
   providedIn: 'root'
