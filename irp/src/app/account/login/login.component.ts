@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
       subscribe(data => { //subscribing to observable
         //if details are correct
         this.student = data;
-        this.router.navigate(['/dashboard'])
+        this.router.navigate(['/default/dashboard'])
       }, err => {
         //if invalid details
         console.log("invalid Details");

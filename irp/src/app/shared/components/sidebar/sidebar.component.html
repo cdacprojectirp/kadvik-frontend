@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<mat-nav-list>
+    <div>
+        <h4>Hello, User!</h4>
+    </div>
+    <div class="profile-card">
+        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" class="img-fluid" alt="Photo of a Shiba Inu">
+    </div>
+    <mat-divider></mat-divider>
+    <h5 matSubHeader>Menu</h5>
+
+    
+    <a mat-list-item routerLinkActive= "list-item-active" routerLink="/default/dashboard">DashBoard</a>
+    <a mat-list-item routerLinkActive= "list-item-active" routerLink="/default/posts">Posts</a>
+    <a mat-list-item routerLinkActive= "list-item-active" routerLink="/default/timetable">Time Table</a>
+
+</mat-nav-list>

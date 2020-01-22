@@ -9,7 +9,10 @@ import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
 import { LogoutComponent } from './account/logout/logout.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { ListComponent } from './account/list/list.component';
+import { DefaultModule } from './layouts/default/default.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TimetableComponent } from './modules/timetable/timetable.component';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +20,9 @@ import { ListComponent } from './account/list/list.component';
     routingComponents,
     LogoutComponent,
     NavbarComponent,
-    ListComponent
+  
+    TimetableComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -25,6 +30,8 @@ import { ListComponent } from './account/list/list.component';
     FormsModule,
     AppRoutingModule,
     NgbModule.forRoot(),
+    DefaultModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
