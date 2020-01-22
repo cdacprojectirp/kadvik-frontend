@@ -12,6 +12,9 @@ import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { DefaultComponent } from './layouts/default/default.component';
 import { PostsComponent } from './modules/posts/posts.component';
 import { TimetableComponent } from './modules/timetable/timetable.component';
+import { FeedbackListComponent } from './feedback/feedback-list/feedback-list.component';
+import { FeedbackComponent } from './feedback/feedback/feedback.component';
+
 
 
 const routes: Routes = [
@@ -31,6 +34,10 @@ const routes: Routes = [
   { path: 'result', component: ResultComponent },
   
 //  { path: '', redirectTo: '/login', pathMatch: 'full' },//for default path
+  { path: 'feedback', component: FeedbackListComponent, canActivate: [AuthGuardService] }, 
+  { path: 'feedback/:id', component: FeedbackComponent },
+
+  { path: '', redirectTo: '/login', pathMatch: 'full' } //for default path
 ];
 
 @NgModule({
@@ -46,4 +53,7 @@ export const routingComponents = [
   QuizComponent,
   ResultComponent,
   TimetableComponent
+  FeedbackComponent,
+  FeedbackListComponent,
+
 ]

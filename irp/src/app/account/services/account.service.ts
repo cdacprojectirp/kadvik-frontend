@@ -8,7 +8,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AccountService {
-  readonly rootUrl = "http://localhost:8080/api/"
+  readonly rootUrl = "http://localhost:8080/api/";
 
   constructor(private http: HttpClient) { }
 
@@ -20,7 +20,6 @@ export class AccountService {
     return this.http.post<any>(this.rootUrl+"student/authenticate", body).pipe(
       map(
         userData => {
-          
           sessionStorage.setItem('prn', userData);
           return userData;
         }

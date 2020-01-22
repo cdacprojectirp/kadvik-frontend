@@ -14,10 +14,6 @@ export class LoginComponent implements OnInit {
   public alert = {
     "hidden": true
   }
-  // cofojsd
-  
-  //model object to store student data
-  public student;
 
   //user entered values
   public email = "";
