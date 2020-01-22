@@ -9,6 +9,7 @@ import { QuizComponent } from './exam/quiz/quiz.component';
 import { ResultComponent } from './exam/result/result.component';
 import { FeedbackListComponent } from './feedback/feedback-list/feedback-list.component';
 import { FeedbackComponent } from './feedback/feedback/feedback.component';
+import { ListComponent } from './account/list/list.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'result', component: ResultComponent },
   { path: 'feedback', component: FeedbackListComponent, canActivate: [AuthGuardService] }, 
   { path: 'feedback/:id', component: FeedbackComponent },
+  { path: 'list', component: ListComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' } //for default path
 ];
 
@@ -36,5 +38,6 @@ export const routingComponents = [
   QuizComponent,
   ResultComponent,
   FeedbackComponent,
-  FeedbackListComponent
+  FeedbackListComponent,
+  ListComponent
 ]
