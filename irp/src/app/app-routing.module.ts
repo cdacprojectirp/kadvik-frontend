@@ -7,6 +7,8 @@ import { AuthGuardService } from './auth-guard.service';
 import { LogoutComponent } from './account/logout/logout.component';
 import { QuizComponent } from './exam/quiz/quiz.component';
 import { ResultComponent } from './exam/result/result.component';
+import { FeedbackListComponent } from './feedback/feedback-list/feedback-list.component';
+import { FeedbackComponent } from './feedback/feedback/feedback.component';
 
 
 const routes: Routes = [
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService] },
   { path: 'quiz', component: QuizComponent },
   { path: 'result', component: ResultComponent },
+  { path: 'feedback', component: FeedbackListComponent, canActivate: [AuthGuardService] }, 
+  { path: 'feedback/:id', component: FeedbackComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' } //for default path
 ];
 
@@ -30,5 +34,7 @@ export const routingComponents = [
   DashboardComponent,
   LogoutComponent,
   QuizComponent,
-  ResultComponent
+  ResultComponent,
+  FeedbackComponent,
+  FeedbackListComponent
 ]
