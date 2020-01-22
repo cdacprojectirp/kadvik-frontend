@@ -20,4 +20,6 @@ export class FacultyService {
 
     return this.http.post<any>(this.rootUrl+"/getlistbystudentprn", body);
   }
+
+  
 }

@@ -11,5 +11,13 @@ export class FeedbackService {
 
   constructor(private http : HttpClient) { }
 
+  public getFeedback(prn, facultyId){
+    const body = {
+      "prn":Number(prn),
+      "facultyId":Number(facultyId)
+    }
+    return this.http.post(this.rootUrl+"/getfeedback", body);
+  }
+
   
 }

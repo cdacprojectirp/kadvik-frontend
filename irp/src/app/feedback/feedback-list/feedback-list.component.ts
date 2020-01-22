@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FacultyService } from 'src/app/services/faculty.service';
+import { FacultyService } from 'src/app/faculty/services/faculty.service';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
