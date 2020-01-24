@@ -9,8 +9,11 @@ import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
 import { LogoutComponent } from './account/logout/logout.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { ListComponent } from './account/list/list.component';
+import { DefaultModule } from './layouts/default/default.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TimetableComponent } from './modules/timetable/timetable.component';
 import { NoticeboardComponent } from './noticeboard/noticeboard.component';
+
 
 @NgModule({
   declarations: [
@@ -18,8 +21,11 @@ import { NoticeboardComponent } from './noticeboard/noticeboard.component';
     routingComponents,
     LogoutComponent,
     NavbarComponent,
-    ListComponent,
-    NoticeboardComponent
+
+    NoticeboardComponent,
+  
+    TimetableComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -27,6 +33,8 @@ import { NoticeboardComponent } from './noticeboard/noticeboard.component';
     FormsModule,
     AppRoutingModule,
     NgbModule.forRoot(),
+    DefaultModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
