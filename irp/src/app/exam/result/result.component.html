@@ -17,8 +17,8 @@
             <div class="card-stacked">
                 <div class="card-content">
                     <h4>PRN: {{prn}}</h4>
-                    <h3>{{this.quizService.correctAnswerCounter}}/10</h3>
-                    <span>Time Elapsed : {{this.quizService.seconds}}</span>
+                    <h3>Score: {{this.quizService.correctAnswerCounter}}/10</h3>
+                    <span>Time Elapsed : {{this.quizService.displayTimeElapsed()}}</span>
                 </div>
                 <!-- <div class="card-action">
             <button class="btn" (click)="OnSubmit()">Submit</button>
