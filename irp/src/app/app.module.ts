@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LogoutComponent } from './account/logout/logout.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ListComponent } from './account/list/list.component';
+import { NoticeboardComponent } from './noticeboard/noticeboard.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ListComponent } from './account/list/list.component';
     routingComponents,
     LogoutComponent,
     NavbarComponent,
-    ListComponent
+    ListComponent,
+    NoticeboardComponent
   ],
   imports: [
     BrowserModule,

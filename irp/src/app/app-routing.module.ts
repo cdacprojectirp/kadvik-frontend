@@ -8,6 +8,7 @@ import { LogoutComponent } from './account/logout/logout.component';
 import { QuizComponent } from './exam/quiz/quiz.component';
 import { ResultComponent } from './exam/result/result.component';
 import { ListComponent } from './account/list/list.component';
+import { NoticeboardComponent } from './noticeboard/noticeboard.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'quiz', component: QuizComponent },
   { path: 'result', component: ResultComponent },
   { path: 'list', component: ListComponent },
+  { path: 'noticeboard', component: NoticeboardComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },//for default path
 ];
 
