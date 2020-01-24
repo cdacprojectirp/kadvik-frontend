@@ -1,6 +1,59 @@
 <app-navbar></app-navbar>
 <p>result works!</p>
 
-<div>
-    <button (click)=restart()>restart</button>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+
+<div class="row">
+    <div class="col s8 offset-s2">
+        <h4 class="header">Completed!</h4>
+        <div class="card horizontal">
+            <!-- <div class="card-image">
+          <img src="../../assets/img/trophy.png" style="width: 250px;height : 250px;">
+        </div> -->
+            <div class="card-stacked">
+                <div class="card-content">
+                    <h4>PRN: {{prn}}</h4>
+                    <h3>Score: {{this.quizService.correctAnswerCounter}}/10</h3>
+                    <span>Time Elapsed : {{this.quizService.displayTimeElapsed()}}</span>
+                </div>
+                <!-- <div class="card-action">
+            <button class="btn" (click)="OnSubmit()">Submit</button>
+          </div> -->
+            </div>
+            <a class="btn-floating halfway-fab waves-effect waves-light red" (click)="restart()">
+                <i class="material-icons">replay</i>
+            </a>
+        </div>
+        <br/>
+        <hr/>
+        <!-- Qn with correct answer -->
+        <h3>Questions with Correct Answers</h3>
+        <ng-container *ngFor="let qn of quizService.questions;let i=index">
+            <div class="card teal">
+                <div class="card-content white-text">
+                    <span class="card-title">{{i+1}}</span>
+                    <p>{{qn.question}}</p>
+                </div>
+
+                <div class="card-action">
+                    <ul class="collection">
+                        <ng-container *ngFor="let option of qn.options;let j = index">
+                            <li *ngIf="option != null" class="collection-item">
+                                {{option}}
+                                <span class="badge" *ngIf="qn.correct==(j+1)">
+                                    <i class="material-icons green-text">check_circle</i>
+                                </span>
+                                <span class="badge red-text"
+                                    *ngIf="qn.answer==(j+1) && qn.correct!=(j+1)">Incorrect</span>
+                            </li>
+                        </ng-container>
+                    </ul>
+                </div>
+            </div>
+        </ng-container>
+    </div>
 </div>

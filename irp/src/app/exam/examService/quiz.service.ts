@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { QuestionId } from './Models/QuestionId';
+import { Observable } from 'rxjs';
+import { Question } from './Models/Question';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +15,7 @@ export class QuizService {
   timer;
   qstProgress: number;
   correctAnswerCounter: number = 0;
+  // qIds: QuestionId[];
 
   //---ctor---
   constructor(private http: HttpClient) { }
@@ -27,9 +31,15 @@ export class QuizService {
     return this.http.get(this.rootUrl + "/exam/quiz");
   }
 
-  getAnswers() {
-    var body = this.questions.map(qst => qst.qnId)
-    return this.http.post(this.rootUrl + "/exam/answers", body);
+  getAnswers(): Observable<any> {
+    var body = [];
+    for (var i = 0; i < 10; i++) {
+      var obj = { "questionId": this.questions[i].questionId };
+      body.push(obj);
+    }
+    //var body = this.questions.map(question => question.questionId);
+    console.log(body);
+    return this.http.post<any>(this.rootUrl + "/exam/answers", body);
   }
 
   // submitScore(){
