@@ -1,4 +1,4 @@
-@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+@import url(https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
 
 .rating, .rating > label { 
     transform: translate(0px, 8px);
@@ -12,6 +12,14 @@
 .rating { 
   border: none;
   text-align: center;
+}
+
+.rating .full:hover{
+  cursor: pointer;
+} 
+
+.checked {
+  color: #ff9800;
 }
 
 .rating > input { display: none; } 
