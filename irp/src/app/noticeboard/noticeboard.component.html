@@ -1,11 +1,19 @@
-<p>noticeboard work!</p>
-<table>
-    <tr *ngFor = " let y of NoticeBoard" > 
-        <td>{{y.noticeId}}</td>
-        <td>{{y.noticeDate}}</td>
-        <td>{{y.heading}}</td>
-        <td>{{y.notice}}</td>
 
-        
-    </tr>
-</table>
+<html>
+    <head>
+    
+    </head>
+    <body>
+    <div >
+        <h2>Notice Board</h2> 
+     <ol>
+            <li *ngFor = " let y of NoticeBoard" >   Issuing Date: {{y.noticeDate}}
+                <h3>{{y.heading}}</h3>
+                {{y.notice}}
+                <hr>
+            </li>
+        </ol>
+    
+    </div>
+    </body>
+    </html>
