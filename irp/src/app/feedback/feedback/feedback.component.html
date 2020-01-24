@@ -1,125 +1,146 @@
 <app-navbar></app-navbar>
+
 <div class="container">
-  <form action="">
+  <div class="alert-container" [innerHtml]="alert">
+
+  </div>
+  <h2>{{ faculty.facultyName }} feedback</h2>
+  <div *ngIf="isFilled == false; then thenBlock; else elseBlock"></div>
+  <ng-template #thenBlock>
+    <form (submit)="submitFeedback()">
+      <div class="feedback-field">
+        <span>Punctuality</span>
+        <fieldset class="rating">
+          <input type="radio" [(ngModel)]="feedback.punctuality" id="punctuality-star5" name="punctuality" value="5" />
+          <label class="full" for="punctuality-star5"></label>
+          <input type="radio" [(ngModel)]="feedback.punctuality" id="punctuality-star4" name="punctuality" value="4" />
+          <label class="full" for="punctuality-star4"></label>
+          <input type="radio" [(ngModel)]="feedback.punctuality" id="punctuality-star3" name="punctuality" value="3" />
+          <label class="full" for="punctuality-star3"></label>
+          <input type="radio" [(ngModel)]="feedback.punctuality" id="punctuality-star2" name="punctuality" value="2" />
+          <label class="full" for="punctuality-star2"></label>
+          <input type="radio" [(ngModel)]="feedback.punctuality" id="punctuality-star1" name="punctuality" value="1" />
+          <label class="full" for="punctuality-star1"></label>
+        </fieldset>
+      </div>
+
+      <div class="feedback-field">
+        <span>Interaction</span>
+        <fieldset class="rating">
+          <input type="radio" [(ngModel)]="feedback.interaction" id="interaction-star5" name="interaction" value="5" />
+          <label class="full" for="interaction-star5"></label>
+          <input type="radio" [(ngModel)]="feedback.interaction" id="interaction-star4" name="interaction" value="4" />
+          <label class="full" for="interaction-star4"></label>
+          <input type="radio" [(ngModel)]="feedback.interaction" id="interaction-star3" name="interaction" value="3" />
+          <label class="full" for="interaction-star3"></label>
+          <input type="radio" [(ngModel)]="feedback.interaction" id="interaction-star2" name="interaction" value="2" />
+          <label class="full" for="interaction-star2"></label>
+          <input type="radio" [(ngModel)]="feedback.interaction" id="interaction-star1" name="interaction" value="1" />
+          <label class="full" for="interaction-star1"></label>
+        </fieldset>
+      </div>
+
+      <div class="feedback-field">
+        <span>Teaching</span>
+        <fieldset class="rating">
+          <input type="radio" [(ngModel)]="feedback.teaching" id="teaching-star5" name="teaching" value="5" />
+          <label class="full" for="teaching-star5"></label>
+          <input type="radio" [(ngModel)]="feedback.teaching" id="teaching-star4" name="teaching" value="4" />
+          <label class="full" for="teaching-star4"></label>
+          <input type="radio" [(ngModel)]="feedback.teaching" id="teaching-star3" name="teaching" value="3" />
+          <label class="full" for="teaching-star3"></label>
+          <input type="radio" [(ngModel)]="feedback.teaching" id="teaching-star2" name="teaching" value="2" />
+          <label class="full" for="teaching-star2"></label>
+          <input type="radio" [(ngModel)]="feedback.teaching" id="teaching-star1" name="teaching" value="1" />
+          <label class="full" for="teaching-star1"></label>
+        </fieldset>
+      </div>
+
+      <div class="feedback-field">
+        <span>Assignments</span>
+        <fieldset class="rating">
+          <input type="radio" [(ngModel)]="feedback.assignment" id="assignment-star5" name="assignment" value="5" />
+          <label class="full" for="assignment-star5"></label>
+          <input type="radio" [(ngModel)]="feedback.assignment" id="assignment-star4" name="assignment" value="4" />
+          <label class="full" for="assignment-star4"></label>
+          <input type="radio" [(ngModel)]="feedback.assignment" id="assignment-star3" name="assignment" value="3" />
+          <label class="full" for="assignment-star3"></label>
+          <input type="radio" [(ngModel)]="feedback.assignment" id="assignment-star2" name="assignment" value="2" />
+          <label class="full" for="assignment-star2"></label>
+          <input type="radio" [(ngModel)]="feedback.assignment" id="assignment-star1" name="assignment" value="1" />
+          <label class="full" for="assignment-star1"></label>
+        </fieldset>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-form-label">Comments</label>
+        <div class="comments-container">
+          <textarea [(ngModel)]="feedback.comments" name="comments" class="form-control" required></textarea>
+        </div>
+      </div>
+      <input type="submit" />
+    </form>
+  </ng-template>
+
+  <ng-template #elseBlock>
+    <!-- else block-->
     <div class="feedback-field">
       <span>Punctuality</span>
-      <fieldset class="rating">
-        <input
-          type="radio"
-          id="punctuality-star5"
-          name="punctuality"
-          value="5"
-        />
-        <label class="full" for="punctuality-star5"></label>
-        <input
-          type="radio"
-          id="punctuality-star4"
-          name="punctuality"
-          value="4"
-        />
-        <label class="full" for="punctuality-star4"></label>
-        <input
-          type="radio"
-          id="punctuality-star3"
-          name="punctuality"
-          value="3"
-        />
-        <label class="full" for="punctuality-star3"></label>
-        <input
-          type="radio"
-          id="punctuality-star2"
-          name="punctuality"
-          value="2"
-        />
-        <label class="full" for="punctuality-star2"></label>
-        <input
-          type="radio"
-          id="punctuality-star1"
-          name="punctuality"
-          value="1"
-        />
-        <label class="full" for="punctuality-star1"></label>
-      </fieldset>
+      <span *ngFor="let number of [0, 1, 2, 3, 4]; index as i">
+        <span *ngIf="i < feedback.punctuality; then thenBlock; else elseBlock"></span>
+        <ng-template #thenBlock>
+          <span class="fa fa-star checked"></span>
+        </ng-template>
+        <ng-template #elseBlock>
+          <span class="fa fa-star"></span>
+        </ng-template>
+      </span>
     </div>
 
     <div class="feedback-field">
       <span>Interaction</span>
-      <fieldset class="rating">
-        <input
-          type="radio"
-          id="interaction-star5"
-          name="interaction"
-          value="5"
-        />
-        <label class="full" for="interaction-star5"></label>
-        <input
-          type="radio"
-          id="interaction-star4"
-          name="interaction"
-          value="4"
-        />
-        <label class="full" for="interaction-star4"></label>
-        <input
-          type="radio"
-          id="interaction-star3"
-          name="interaction"
-          value="3"
-        />
-        <label class="full" for="interaction-star3"></label>
-        <input
-          type="radio"
-          id="interaction-star2"
-          name="interaction"
-          value="2"
-        />
-        <label class="full" for="interaction-star2"></label>
-        <input
-          type="radio"
-          id="interaction-star1"
-          name="interaction"
-          value="1"
-        />
-        <label class="full" for="interaction-star1"></label>
-      </fieldset>
+      <span *ngFor="let number of [0, 1, 2, 3, 4]; index as i">
+        <span *ngIf="i < feedback.interaction; then thenBlock; else elseBlock"></span>
+        <ng-template #thenBlock>
+          <span class="fa fa-star checked"></span>
+        </ng-template>
+        <ng-template #elseBlock>
+          <span class="fa fa-star"></span>
+        </ng-template>
+      </span>
     </div>
 
     <div class="feedback-field">
       <span>Teaching</span>
-      <fieldset class="rating">
-        <input type="radio" id="teaching-star5" name="teaching" value="5" />
-        <label class="full" for="teaching-star5"></label>
-        <input type="radio" id="teaching-star4" name="teaching" value="4" />
-        <label class="full" for="teaching-star4"></label>
-        <input type="radio" id="teaching-star3" name="teaching" value="3" />
-        <label class="full" for="teaching-star3"></label>
-        <input type="radio" id="teaching-star2" name="teaching" value="2" />
-        <label class="full" for="teaching-star2"></label>
-        <input type="radio" id="teaching-star1" name="teaching" value="1" />
-        <label class="full" for="teaching-star1"></label>
-      </fieldset>
+      <span *ngFor="let number of [0, 1, 2, 3, 4]; index as i">
+        <span *ngIf="i < feedback.teaching; then thenBlock; else elseBlock"></span>
+        <ng-template #thenBlock>
+          <span class="fa fa-star checked"></span>
+        </ng-template>
+        <ng-template #elseBlock>
+          <span class="fa fa-star"></span>
+        </ng-template>
+      </span>
     </div>
 
     <div class="feedback-field">
       <span>Assignments</span>
-      <fieldset class="rating">
-        <input type="radio" id="assignment-star5" name="assignment" value="5" />
-        <label class="full" for="assignment-star5"></label>
-        <input type="radio" id="assignment-star4" name="assignment" value="4" />
-        <label class="full" for="assignment-star4"></label>
-        <input type="radio" id="assignment-star3" name="assignment" value="3" />
-        <label class="full" for="assignment-star3"></label>
-        <input type="radio" id="assignment-star2" name="assignment" value="2" />
-        <label class="full" for="assignment-star2"></label>
-        <input type="radio" id="assignment-star1" name="assignment" value="1" />
-        <label class="full" for="assignment-star1"></label>
-      </fieldset>
+      <span *ngFor="let number of [0, 1, 2, 3, 4]; index as i">
+        <span *ngIf="i < feedback.assignment; then thenBlock; else elseBlock"></span>
+        <ng-template #thenBlock>
+          <span class="fa fa-star checked"></span>
+        </ng-template>
+        <ng-template #elseBlock>
+          <span class="fa fa-star"></span>
+        </ng-template>
+      </span>
     </div>
 
     <div class="form-group row">
       <label class="col-form-label">Comments</label>
-      <div class="">
-        <textarea class="form-control"></textarea>
+      <div class="comments-container">
+        <textarea [(ngModel)]="feedback.comments" name="comments" class="form-control" disabled></textarea>
       </div>
     </div>
-  </form>
+  </ng-template>
 </div>

@@ -14,7 +14,10 @@ export class FeedbackComponent implements OnInit {
 
   private faculty: Faculty = new Faculty();
   private flag: boolean = false;
-  private feedback;
+  private feedback:Feedback = new Feedback();
+  private isFilled:boolean;
+  private alert:string;
+  
 
   constructor(
     private route: ActivatedRoute,
@@ -47,14 +50,38 @@ export class FeedbackComponent implements OnInit {
           this._feedbackService.getFeedback(prn, this.faculty.facultyId).subscribe(
             (data) => {
               if (data === null) { //if feedback is not filled
-                
+                this.isFilled = false;
               }
               else { // if feedback is already filled
                 this.feedback =  data;
-                console.log("you have filled feedback");
+                this.isFilled = true;
               }
             });
         })
       });
   }
+
+
+  public submitFeedback(){
+    if(Object.keys(this.feedback).length < 5 || this.feedback.comments.length === 0){
+      //If All fields are not filled
+      this.alert = `<div class="alert alert-danger">
+      Please Fill All details before pressing submit. 
+    </div>`
+
+    }
+    else{
+      //if all fields are filled 
+      this._feedbackService.addFeedback(this.feedback, this.faculty.facultyId).subscribe(
+        (data) => {
+          location.reload();
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+      
+    }
+  }
+
 }

@@ -28,13 +28,16 @@ const routes: Routes = [
   ]
 },
   { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'logout', component: LogoutComponent, canActivate: [AuthGuardService] },
- // { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService] },
   { path: 'quiz', component: QuizComponent },
   { path: 'result', component: ResultComponent },
   { path: 'noticeboard', component: NoticeboardComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },//for default path
+  
+  { path: 'feedback', component: FeedbackListComponent, canActivate: [AuthGuardService] }, 
+  { path: 'feedback/:id', component: FeedbackComponent }
 ];
 
 @NgModule({
