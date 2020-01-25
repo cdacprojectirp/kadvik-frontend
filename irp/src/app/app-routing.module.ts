@@ -21,26 +21,23 @@ import { SubjectsComponent } from './exam/subjects/subjects.component';
 
 const routes: Routes = [
   {
-    path:'default', component:DefaultComponent,
-  children:[
-    {path:'dashboard',component:DashboardComponent},
-    {path:'posts',component:PostsComponent},
-    { path: 'timetable', component: TimetableComponent },
-    { path: 'quiz', component: QuizComponent },
-  ]
-},
-  { path: '', component: LoginComponent },
+    path: 'default', component: DefaultComponent,
+    children: [
+      { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService] },
+      { path: 'posts', component: PostsComponent, canActivate: [AuthGuardService] },
+      { path: 'timetable', component: TimetableComponent, canActivate: [AuthGuardService] },
+      { path: 'subjects', component: SubjectsComponent, canActivate: [AuthGuardService] },
+      { path: 'quiz', component: QuizComponent, canActivate: [AuthGuardService] },
+      { path: 'result', component: ResultComponent, canActivate: [AuthGuardService] },
+      { path: 'noticeboard', component: NoticeboardComponent, canActivate: [AuthGuardService] },
+      { path: 'feedback', component: FeedbackListComponent, canActivate: [AuthGuardService] },
+      { path: 'feedback/:id', component: FeedbackComponent, canActivate: [AuthGuardService] }
+    ]
+  },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'logout', component: LogoutComponent, canActivate: [AuthGuardService] },
-  { path: 'subjects', component: SubjectsComponent },
-  { path: 'quiz', component: QuizComponent },
-  { path: 'result', component: ResultComponent },
-  { path: 'noticeboard', component: NoticeboardComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },//for default path
-  
-  { path: 'feedback', component: FeedbackListComponent, canActivate: [AuthGuardService] }, 
-  { path: 'feedback/:id', component: FeedbackComponent }
 ];
 
 @NgModule({
@@ -51,7 +48,7 @@ export class AppRoutingModule { }
 export const routingComponents = [
   LoginComponent,
   RegisterComponent,
- // DashboardComponent,
+  // DashboardComponent,
   LogoutComponent,
   QuizComponent,
   ResultComponent,

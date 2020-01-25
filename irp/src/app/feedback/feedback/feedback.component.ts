@@ -43,7 +43,7 @@ export class FeedbackComponent implements OnInit {
           }
           //If faculty does not teach the logged in student)
           if (this.flag === false) {
-            this.router.navigate(['/feedback']);
+            this.router.navigate(['/default','feedback']);
           }
           //If facultyId is verified(i.e faculty teaches to the logged in student)
           //check if feedback is already filled for this faculty by the logged in student

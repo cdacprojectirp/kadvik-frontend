@@ -1,6 +1,5 @@
-<app-navbar></app-navbar>
 <ul class="list-group">
     <li *ngFor="let faculty of facultyList; let i = index" class="list-group-item">
-        <a [routerLink] = "['/feedback', faculty.facultyId]">{{i+1}} {{faculty.facultyName}}</a>
+        <a [routerLink] = "['/default', 'feedback', faculty.facultyId]">{{i+1}} {{faculty.facultyName}}</a>
     </li>
 </ul>

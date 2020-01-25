@@ -38,7 +38,7 @@ export class ResultComponent implements OnInit {
       );
     }
     else
-      this.router.navigate(['/quiz']);
+      this.router.navigate(['/default','quiz']);
   }
 
   // onSubmit(){
@@ -52,7 +52,7 @@ export class ResultComponent implements OnInit {
     localStorage.setItem('qstProgress', "0");
     localStorage.setItem('questions', "");
     localStorage.setItem('seconds', "0");
-    this.router.navigate(['/quiz']);
+    this.router.navigate(['/default','quiz']);
 
   }
 

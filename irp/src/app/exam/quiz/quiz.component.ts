@@ -78,6 +78,6 @@ export class QuizComponent implements OnInit {
     this.quizService.qstProgress = 10;
     localStorage.setItem('qstProgress', this.quizService.qstProgress.toString());
     clearInterval(this.quizService.timer);
-    this.router.navigate(['/result']);
+    this.router.navigate(['/default', 'result']);
   }
 }
