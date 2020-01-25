@@ -20,7 +20,7 @@ export class QuizComponent implements OnInit {
       this.quizService.qstProgress = parseInt(localStorage.getItem('qstProgress'));
       this.quizService.questions = JSON.parse(localStorage.getItem('questions'));
       if (this.quizService.qstProgress == 10)
-        this.router.navigate(['/result']);
+        this.router.navigate(['/default','result']);
       else
         this.startTimer();
     }

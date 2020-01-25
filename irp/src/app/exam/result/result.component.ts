@@ -53,7 +53,6 @@ export class ResultComponent implements OnInit {
     localStorage.setItem('questions', "");
     localStorage.setItem('seconds', "0");
     this.router.navigate(['/default','quiz']);
-
   }
 
 }
