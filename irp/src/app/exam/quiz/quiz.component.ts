@@ -38,9 +38,12 @@ export class QuizComponent implements OnInit {
 
   startTimer() {
     this.quizService.timer = setInterval(() => {
+      localStorage.setItem('questions', JSON.stringify(this.quizService.questions));
+      localStorage.setItem('qstProgress', this.quizService.qstProgress.toString());
       this.quizService.seconds++;
       localStorage.setItem('seconds', this.quizService.seconds.toString());
     }, 1000);
+
     console.log(this.quizService.seconds);
 
   }

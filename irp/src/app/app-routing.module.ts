@@ -15,6 +15,7 @@ import { TimetableComponent } from './modules/timetable/timetable.component';
 import { FeedbackListComponent } from './feedback/feedback-list/feedback-list.component';
 import { FeedbackComponent } from './feedback/feedback/feedback.component';
 import { NoticeboardComponent } from './noticeboard/noticeboard.component';
+import { SubjectsComponent } from './exam/subjects/subjects.component';
 
 
 
@@ -25,12 +26,14 @@ const routes: Routes = [
     {path:'dashboard',component:DashboardComponent},
     {path:'posts',component:PostsComponent},
     { path: 'timetable', component: TimetableComponent },
+    { path: 'quiz', component: QuizComponent },
   ]
 },
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'logout', component: LogoutComponent, canActivate: [AuthGuardService] },
+  { path: 'subjects', component: SubjectsComponent },
   { path: 'quiz', component: QuizComponent },
   { path: 'result', component: ResultComponent },
   { path: 'noticeboard', component: NoticeboardComponent },

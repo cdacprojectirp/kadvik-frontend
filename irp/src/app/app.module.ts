@@ -13,6 +13,7 @@ import { DefaultModule } from './layouts/default/default.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TimetableComponent } from './modules/timetable/timetable.component';
 import { NoticeboardComponent } from './noticeboard/noticeboard.component';
+import { SubjectsComponent } from './exam/subjects/subjects.component';
 
 
 @NgModule({
@@ -21,10 +22,9 @@ import { NoticeboardComponent } from './noticeboard/noticeboard.component';
     routingComponents,
     LogoutComponent,
     NavbarComponent,
-
     NoticeboardComponent,
-  
     TimetableComponent,
+    SubjectsComponent//needed here unknowingly
 
   ],
   imports: [
