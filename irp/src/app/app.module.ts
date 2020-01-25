@@ -32,6 +32,7 @@ import { NoticeboardComponent } from './noticeboard/noticeboard.component';
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
+
     NgbModule.forRoot(),
     DefaultModule,
     BrowserAnimationsModule
