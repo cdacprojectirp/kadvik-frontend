@@ -32,6 +32,7 @@ import { SubjectsComponent } from './exam/subjects/subjects.component';
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
+
     NgbModule.forRoot(),
     DefaultModule,
     BrowserAnimationsModule
