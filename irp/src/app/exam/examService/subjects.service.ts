@@ -14,9 +14,9 @@ export class SubjectsService {
 
 
   getSubjects(): Observable<any>{
-    var body= sessionStorage.getItem('prn');
-    return this.http.post(this.rootUrl+ "/subject/list", body);
+    var body={
+     "prn":'1'
+    } 
+    return this.http.post<any>(this.rootUrl+ "/subject/list", body);
   }
-  
-
 }

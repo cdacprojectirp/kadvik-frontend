@@ -14,13 +14,17 @@ export class SubjectsComponent implements OnInit {
   ngOnInit() {
     console.log(localStorage.getItem('subjects'))
     if (localStorage.getItem('subjects') == null){
+      console.log('hey');
       this.subjectService.getSubjects().subscribe(
         (data: any) => {
-          this.subjectService.subjects = data;
+          console.log('data '+data);
+          this.subjectService.subjects= data;
         }
       );
+      //console.log(JSON.stringify(this.subjectService.subjects));
     localStorage.setItem('subjects', JSON.stringify(this.subjectService.subjects));
     } else {
+      console.log('bye');
       this.subjectService.subjects=JSON.parse(localStorage.getItem('subjects'));
     }
   }

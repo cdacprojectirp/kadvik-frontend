@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { QuestionId } from './Models/QuestionId';
 import { Observable } from 'rxjs';
-import { Question } from './Models/Question';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +27,10 @@ export class QuizService {
 
   getQuestions() {
     return this.http.get(this.rootUrl + "/exam/quiz");
+  }
+
+  getQuestionsBySubject(subjectId) {
+    return this.http.get(this.rootUrl + "/exam/quiz/subject");
   }
 
   getAnswers(): Observable<any> {

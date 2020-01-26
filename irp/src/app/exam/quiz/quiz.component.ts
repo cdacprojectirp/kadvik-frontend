@@ -29,6 +29,7 @@ export class QuizComponent implements OnInit {
       this.quizService.qstProgress = 0;
       this.quizService.getQuestions().subscribe(
         (data: any) => {
+          console.log('quizData'+ data);
           this.quizService.questions = data;
           this.startTimer();
         }
