@@ -14,6 +14,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TimetableComponent } from './modules/timetable/timetable.component';
 import { NoticeboardComponent } from './noticeboard/noticeboard.component';
 import { SubjectsComponent } from './exam/subjects/subjects.component';
+import { TimeTableListComponent } from './admin/time-table-list/time-table-list.component';
+import { TimeTableAdminComponent } from './admin/time-table-admin/time-table-admin.component';
+
+//import { TimeTableAdminComponent } from './admin/time-table-admin.component';
 
 
 @NgModule({
@@ -24,6 +28,8 @@ import { SubjectsComponent } from './exam/subjects/subjects.component';
     NavbarComponent,
     NoticeboardComponent,
     TimetableComponent,
+    TimeTableListComponent,
+    TimeTableAdminComponent,
     SubjectsComponent//needed here unknowingly
 
   ],

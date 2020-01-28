@@ -16,6 +16,6 @@ export class TimetableService {
     console.log(nid);
    let params= new HttpParams();
    params = params.set("page",data);
-    return this.http.get<TimeTable[]>("http://localhost:8080/api/student/getTimeTable",{params});
+    return this.http.get<TimeTable[]>("http://localhost:8080/api/timetable/getTimeTable",{params});
   }
 }
