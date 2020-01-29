@@ -16,6 +16,8 @@ import { FeedbackListComponent } from './feedback/feedback-list/feedback-list.co
 import { FeedbackComponent } from './feedback/feedback/feedback.component';
 import { NoticeboardComponent } from './noticeboard/noticeboard.component';
 import { SubjectsComponent } from './exam/subjects/subjects.component';
+import { TimeTableListComponent } from './admin/time-table-list/time-table-list.component';
+import { TimeTableAdminComponent } from './admin/time-table-admin/time-table-admin.component';
 
 
 
@@ -35,6 +37,8 @@ const routes: Routes = [
       { path: 'feedback/:id', component: FeedbackComponent, canActivate: [AuthGuardService] }
     ]
   },
+  { path: 'courses', component: TimeTableListComponent },
+  { path: 'timeTableAdmin/:courseId', component: TimeTableAdminComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'logout', component: LogoutComponent, canActivate: [AuthGuardService] },

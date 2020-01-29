@@ -1,0 +1,29 @@
+<form (submit)="submitTimeTable()">
+<table class="table table-striped table-hover table-bordered">
+    <tr >
+      <td id="day">Timings</td>
+      <td *ngFor="let x of timeTable" id="day">{{x.day}}</td>
+    </tr> 
+    <tr>
+      <td id="time">10:00-13:00</td>
+      <td *ngFor="let x of timeTable;"><input type="text" [(ngModel)]="x.periodA" [name]="x.dayId"></td>   
+    </tr>
+    <tr>
+        <td id="time">13:00-14:00</td>
+        <td colspan="5" id="free">Lunch Break</td>   
+      </tr>
+  <tr>
+     <td id="time">14:00-16:00</td>
+     <td *ngFor="let x of timeTable"><input type="text" [(ngModel)]="x.periodB" [name]="x.dayId + 10"></td>   
+    </tr>
+  <tr>
+      <td id="time">16:00-16:30</td>
+      <td colspan="5" id="free">Tea Break</td>   
+    </tr>
+  <tr>
+    <td id="time">16:30-21:00</td>
+    <td *ngFor="let x of timeTable"><input type="text" [(ngModel)]="x.periodC" [name]="x.dayId + 20"></td>   
+    </tr>
+</table>
+<input type="submit" value="Update">
+</form>
