@@ -27,6 +27,7 @@ const routes: Routes = [
       { path: 'posts', component: PostsComponent, canActivate: [AuthGuardService] },
       { path: 'timetable', component: TimetableComponent, canActivate: [AuthGuardService] },
       { path: 'subjects', component: SubjectsComponent, canActivate: [AuthGuardService] },
+      // { path: 'subjects/:id', component: SubjectsComponent, canActivate: [AuthGuardService] },
       { path: 'quiz', component: QuizComponent, canActivate: [AuthGuardService] },
       { path: 'result', component: ResultComponent, canActivate: [AuthGuardService] },
       { path: 'noticeboard', component: NoticeboardComponent, canActivate: [AuthGuardService] },

@@ -13,10 +13,10 @@ export class SubjectsService {
   constructor(private http: HttpClient) { }
 
 
-  getSubjects(): Observable<any>{
-    var body={
-     "prn":'1'
-    } 
-    return this.http.post<any>(this.rootUrl+ "/subject/list", body);
+  getSubjects(): Observable<any> {
+    var body = {
+      "prn": sessionStorage.getItem("prn")
+    }
+    return this.http.post<any>(this.rootUrl + "/subject/list", body);
   }
 }

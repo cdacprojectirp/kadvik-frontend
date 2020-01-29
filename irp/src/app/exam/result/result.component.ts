@@ -50,9 +50,13 @@ export class ResultComponent implements OnInit {
 
   restart() {
     localStorage.setItem('qstProgress', "0");
+    this.quizService.qstProgress=0;
     localStorage.setItem('questions', "");
     localStorage.setItem('seconds', "0");
-    this.router.navigate(['/default','quiz']);
+    this.quizService.seconds=0;
+    localStorage.setItem('subjectId','0');
+    this.quizService.subjectId=0;
+    this.router.navigate(['/default','subjects']);
   }
 
 }

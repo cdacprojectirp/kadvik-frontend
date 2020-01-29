@@ -6,14 +6,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
 <div class="collection">
-    <a href="#!" class="collection-item">Alvin</a>
-    <a href="#!" class="collection-item active">Alvin</a>
-    <a href="#!" class="collection-item">Alvin</a>
-    <a href="#!" class="collection-item">Alvin</a>
-    <!-- <ul class="list-group">
-        <li *ngFor="let subject of subjects; let i = index" class="list-group-item">
-            <a [routerLink]="['/default', 'subjects', subject.subjectId]">{{i+1}} {{subjects.subjectId}}</a>
-            hiee
+    <div class="title">
+        
+    </div>
+    <ul class="list-group">
+        <li *ngFor="let subject of subjectService.subjects; let i = index" class="list-group-item hoverable">
+            <h5 class='blue-text' (click)=getQuiz(subject.subjectId)>{{i+1}} {{subject.subjectName | titlecase}}</h5>
         </li>
-    </ul> -->
+    </ul>
 </div>

@@ -13,6 +13,7 @@ export class QuizService {
   timer;
   qstProgress: number;
   correctAnswerCounter: number = 0;
+  subjectId: number;
   // qIds: QuestionId[];
 
   //---ctor---
@@ -29,8 +30,12 @@ export class QuizService {
     return this.http.get(this.rootUrl + "/exam/quiz");
   }
 
-  getQuestionsBySubject(subjectId) {
-    return this.http.get(this.rootUrl + "/exam/quiz/subject");
+  getQuestionsBySubject(): Observable<any>{
+    this.subjectId= parseInt(localStorage.getItem('subjectId'));
+    var body = {
+      'subjectId': this.subjectId
+    }
+    return this.http.post<any>(this.rootUrl + "/exam/quiz/subject", body);
   }
 
   getAnswers(): Observable<any> {

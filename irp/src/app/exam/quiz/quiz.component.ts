@@ -20,16 +20,26 @@ export class QuizComponent implements OnInit {
       this.quizService.qstProgress = parseInt(localStorage.getItem('qstProgress'));
       this.quizService.questions = JSON.parse(localStorage.getItem('questions'));
       if (this.quizService.qstProgress == 10)
-        this.router.navigate(['/default','result']);
-      else
-        this.startTimer();
+        this.router.navigate(['/default', 'result']);
+      //else
+       // this.startTimer();
     }
     else {
       this.quizService.seconds = 0;
       this.quizService.qstProgress = 0;
-      this.quizService.getQuestions().subscribe(
+      // this.quizService.getQuestions().subscribe(
+      //   (data: any) => {
+      //     console.log('quizData'+ data);
+      //     this.quizService.questions = data;
+      //     this.startTimer();
+      //   }
+      // );
+      if (localStorage.getItem('subjects') == null) {
+        this.getSubjectList();
+      }
+      this.quizService.getQuestionsBySubject().subscribe(
         (data: any) => {
-          console.log('quizData'+ data);
+          console.log('quizDataByQst' + data);
           this.quizService.questions = data;
           this.startTimer();
         }
@@ -46,7 +56,10 @@ export class QuizComponent implements OnInit {
     }, 1000);
 
     console.log(this.quizService.seconds);
+  }
 
+  getSubjectList() {
+    this.router.navigate(['/default', 'subjects']);
   }
 
   answer(qId, choice) {
